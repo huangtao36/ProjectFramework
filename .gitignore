@@ -29,8 +29,10 @@ $RECYCLE.BIN/
 
 # User-specific stuff
 .idea/
-.checkpoints/
-cache.py
+checkpoints/
+Cache/
+cache.py/
+dataset/
 
 # CMake
 cmake-build-debug/

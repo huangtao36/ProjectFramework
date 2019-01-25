@@ -27,8 +27,8 @@ def define_network(device=torch.device('cpu')):
 class Network(nn.Module):
     def __init__(self):
         super(Network, self).__init__()
-        pass
+        self.layer1 = nn.Conv2d(3, 3, 3, 1, 1)
 
-    def forward(self, *input):
-
-        return None
+    def forward(self, input_):
+        out = self.layer1(input_)
+        return out

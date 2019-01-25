@@ -24,12 +24,23 @@ def configs(save=True, pkl_file='params.pkl'):
     parser.add_argument('--name', type=str, default='experiment_name', help='where to store samples and models')
     parser.add_argument('--gpu_ids', type=str, default='0', help='if there no GPU, auto use cpu')
     parser.add_argument('--dataroot', type=str, default='./datasets/cityscapes/')
-    parser.add_argument('--batch_size', type=int, default=1, help='input batch size')
     parser.add_argument('--continue_train', action='store_true', help='continue training: load the latest model')
     parser.add_argument('--isTrain', default=True, help='False for test')
 
+    # for train
+    parser.add_argument('--epoch', type=int, default=200)
     parser.add_argument('--beta1', type=float, default=0.5, help='momentum term of adam')
     parser.add_argument('--lr', type=float, default=0.0002, help='initial learning rate for adam')
+
+    # for data
+    parser.add_argument('--batch_size', type=int, default=2, help='input batch size')
+    parser.add_argument('--num_works', default=0, type=int, help='# threads for loading data')
+    parser.add_argument('--shuffle', default=True, help='# shuffle for loading data')
+
+    # for visdom
+    parser.add_argument('--display_port', type=int, default=8097, help='visdom port of the web display')
+    parser.add_argument('--display_server', type=str, default="http://localhost", help='visdom server of the web display')
+    parser.add_argument('--display_env', type=str, default='main', help='visdom display environment name (default is "main")')
 
     opt = parser.parse_args()
 
