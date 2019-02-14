@@ -13,7 +13,7 @@ if __name__ == '__main__':
     experiment_dir = os.path.join(opt.checkpoints_dir, opt.name)
     mkdirs(experiment_dir)
 
-    opt.display_server = 'http://110.65.102.123'
+    opt.display_server = 'http://xxx.xx.xxx.xxx' # IP
     opt.display_port = 1128
     opt.display_env = 'check'
     vis = Visualizer(server=opt.display_server,
