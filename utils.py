@@ -19,6 +19,16 @@ class Visualizer(object):
             raise_exceptions=True)
         self.index = {}
 
+    def display_current_results(self, visuals, epoch):
+        idx = 1
+        for label, image in visuals.items():
+            image_numpy = tensor2im(image)
+            self.vis.image(image_numpy.transpose([2, 0, 1]),
+                           opts=dict(title=label+"_epoch"+str(epoch),
+                                     caption=None),
+                           win=1 + idx)
+            idx += 1
+
     def plot_many_stack(self, data_dic, split=False):
         """
         use like this:
